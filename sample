@@ -1,0 +1,33 @@
+ // "short_name": "Hijri Date Converter",
+    // "content_scripts": [
+    //     {
+    //         "matches": ["https://*.google.com/*"],
+    //         "css": ["my-styles.css"],
+    //         "js": ["content-script.js"]
+    //     }
+    // ],
+    // "browser_action": {
+    //     "default_title": "Does a thing when you do a thing",
+    //     "default_popup": "popup.html",
+    //     "default_icon": {
+    //         "16": "icons/icon16.png",
+    //         "32": "icons/icon32.png"
+    //     }
+    // },
+    // "background": {
+    //     "scripts": ["background.js"]
+    // }
+
+        // "options_page": "options.html"
+
+   //      "background": {
+   //       "service_worker": "background.js"
+   //   },
+
+//    "permissions": [
+//       "storage",
+//       "activeTab",
+//       "scripting"
+//   ],
+
+// "default_popup": "popup.html",
