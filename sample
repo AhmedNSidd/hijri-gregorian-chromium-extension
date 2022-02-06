@@ -31,3 +31,10 @@
 //   ],
 
 // "default_popup": "popup.html",
+
+// "content_scripts": [
+//    {
+//       "matches": ["https://*.google.com/*"],
+//       "js": ["content-script.js"]
+//   }
+// ],

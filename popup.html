@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="button.css">
+        <link rel="stylesheet" href="popup.css">
     </head>
     <body>
-        <button id="changeColor"></button>
+        <div class="main">
+            <h3>Hijri-Gregorian Converter</h3>
+            <br/>
+            <div class="control-panel">
+                <h4>POWER</h4>
+                <!-- Diffirent modifiers of toggle-switch: toggle-switch--on, 
+                    toggle-switch--off, toggle-switch--hijri, toggle-switch--gregorian, 
+                    toggle-switch--hijri-disabled, toggle-switch--gregorian-disabled -->
+                <label class="toggle-switch toggle-switch--on">
+                    <input type="checkbox" id="powerButton">
+                    <span class="toggle-switch__label" id="powerLabel"></span>
+                  </label>
+                <br/>
+                <h4>CONVERSION <button class="conversion-hint-button">?</button></h4>
+                <!-- Place this relatively (on the right) to the 'conversion' heading above-->
+                <input id="hijriButton" class="toggle toggle-left" name="toggle" value="hijri" type="radio">
+                <label for="hijriButton" class="btn">Hijri</label>
+                <input id="gregorianButton" class="toggle toggle-right" name="toggle" value="gregorian" type="radio">
+                <label for="gregorianButton" class="btn">Gregorian</label>
+                <!-- <label class="toggle-switch toggle-switch--gregorian">
+                    <input type="checkbox" id="conversionSwitch">
+                    <span class="toggle-switch__label" id="conversionLabel"></span>
+                </label>     -->
+            </div>
+        </div>
+
         <script src="popup.js"></script>
     </body>
 </html>

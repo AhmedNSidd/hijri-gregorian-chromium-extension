@@ -1,24 +1,40 @@
-let changeColor = document.getElementById("changeColor");
+let powerButton = document.getElementById("powerButton");
+let hijriButton = document.getElementById("hijriButton");
+let gregorianButton = document.getElementById("gregorianButton");
 
-chrome.storage.sync.get("color", ({ color }) => {
-    changeColor.style.backgroundColor = color;
+chrome.storage.sync.get(["power", "conversion_type"], function(result) {
+
+    if (result.power === "on") {
+        powerButton.checked = true;
+    } else {
+        powerButton.checked = false;
+    }
+
+    if (result.conversion_type === "hijri") {
+        hijriButton.checked = true;
+    } else {
+        gregorianButton.checked = true;
+    }
 });
 
 
-// When the button is clicked, inject setPageBackgroundColor into curr page.
-changeColor.addEventListener("click", async () => {
-    let [tab] = await chrome.tabs.query({ active: true, currentWindow:true });
 
-    chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        function: setPageBackgroundColor
-    });
+powerButton.addEventListener('change', function () {
+    if (this.checked) {
+        chrome.storage.sync.set({"power": "on"});
+    } else {
+        chrome.storage.sync.set({"power": "off"});
+    }
 });
 
-// The body of this function will be executed as a content script inside the
-// current page
-function setPageBackgroundColor() {    
-    chrome.storage.sync.get("color", ({ color }) => {
-        document.body.style.backgroundColor = color;
-    });
-}
+hijriButton.addEventListener('change', function () {
+    if (this.checked) {
+        chrome.storage.sync.set({"conversion_type": "hijri"});
+    }
+});
+
+gregorianButton.addEventListener('change', function () {
+    if (this.checked) {
+        chrome.storage.sync.set({"conversion_type": "gregorian"});
+    }
+});
